@@ -34,8 +34,15 @@ export const Login = ({ history }) => {
       }
     })
       .then(({ data }) => {
-        cookie.set("user", JSON.stringify(data));
-        history.push("/dashboard");
+        if (data.signinUser.token) {
+          cookie.set("user", JSON.stringify(user.email));
+          history.push("/dashboard");
+        } else {
+          addToast("Não foi possível acessar, tente novamente", {
+            appearance: "error",
+            autoDismissTimeout: 4000
+          });
+        }
       })
       .catch(res => {
         const message = getErrorMutation(res);

@@ -1,16 +1,20 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import cookie from "js-cookie";
+import cookieJs from "js-cookie";
+import { WithUserData } from "./withUserData";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const user = cookie.get("user");
+  const email = cookieJs.get("user");
 
   return (
     <Route
       {...rest}
       render={props =>
-        user ? (
-          <Component user={user} {...props} />
+        cookieJs ? (
+          <WithUserData
+            component={Component}
+            email={email && JSON.parse(email)}
+          />
         ) : (
           <Redirect to="/login" exact />
         )
@@ -20,7 +24,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 const LoginRoute = ({ component: Component, path, ...rest }) => {
-  const user = cookie.get("user");
+  const user = cookieJs.get("user");
 
   return (
     <Route
