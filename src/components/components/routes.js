@@ -19,15 +19,36 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+const LoginRoute = ({ component: Component, path, ...rest }) => {
+  const user = cookie.get("user");
+
   return (
     <Route
       {...rest}
       render={props =>
-        restricted ? <Redirect to="/dashboard" /> : <Component {...props} />
+        user && path === "/login" ? (
+          <Redirect to="/dashboard" exact {...props} />
+        ) : (
+          <Component to="/login" exact {...props} />
+        )
       }
     />
   );
 };
 
-export { PublicRoute, PrivateRoute };
+const PublicRoute = ({ component: Component, restricted, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        restricted ? (
+          <Redirect to="/dashboard" exact />
+        ) : (
+          <Component {...props} />
+        )
+      }
+    />
+  );
+};
+
+export { PublicRoute, PrivateRoute, LoginRoute };

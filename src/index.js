@@ -3,10 +3,13 @@ import ReactDOM from "react-dom";
 import client from "./service/client";
 import { ApolloProvider } from "react-apollo";
 import App from "./components/App";
+import { ToastProvider } from "react-toast-notifications";
 
 const Index = () => (
   <ApolloProvider client={client}>
-    <App />
+    <ToastProvider>
+      <App />
+    </ToastProvider>
   </ApolloProvider>
 );
 
