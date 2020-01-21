@@ -19,7 +19,7 @@ export const ProfilePicture = ({ modal }) => {
         />
       ) : (
         <div style={{ display: "flex" }}>
-          <UserNotDefined />
+          <UserNotDefined modal={modal} />
         </div>
       )}
     </div>

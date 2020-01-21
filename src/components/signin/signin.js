@@ -111,7 +111,7 @@ export const Signin = ({ history }) => {
               {loading ? "Cadastrando..." : "Cadastrar"}
             </button>
           </div>
-          <div className="text-link">
+          <div className="text-link sign-in-link">
             <Link to="/login">Login</Link>
             <IoIosArrowRoundForward size="20" />
           </div>

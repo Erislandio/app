@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 export const Dropwdown = ({ open }) => {
   const logout = () => {
     cookieJs.remove("user");
+    window.location.href = "/login";
   };
-
+  
   return open ? (
     <div className="dropdown">
       <div className="dropdown-default">

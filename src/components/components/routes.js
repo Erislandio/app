@@ -10,10 +10,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        cookieJs ? (
+        email ? (
           <WithUserData
             component={Component}
             email={email && JSON.parse(email)}
+            {...props}
           />
         ) : (
           <Redirect to="/login" exact />

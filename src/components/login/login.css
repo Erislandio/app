@@ -160,7 +160,6 @@
   color: #57b846;
 }
 
-
 @media screen and (max-width: 900px) {
   .login-wrap {
     flex-direction: column;
@@ -190,3 +189,6 @@
   }
 }
 
+.sign-in-link {
+  margin-top: 20px;
+}

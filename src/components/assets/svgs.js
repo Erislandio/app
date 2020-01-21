@@ -1,5 +1,5 @@
 import React from "react";
-export const UserNotDefined = () => (
+export const UserNotDefined = ({ modal }) => (
   <svg
     version="1.1"
     id="Capa_1"
@@ -8,8 +8,8 @@ export const UserNotDefined = () => (
     y="0px"
     viewBox="0 0 53 53"
     style={{ enableBackground: "new 0 0 53 53" }}
-    width="40px"
-    height="40px"
+    width={modal ? "200px" : "40px"}
+    height={modal ? "200px" : "40px"}
   >
     <path
       style={{ fill: "#E7ECED" }}
