@@ -1,0 +1,49 @@
+.header > div {
+  display: flex;
+  padding: 10px;
+  background: #2c3e50;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.header .menu-icon {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+
+.header .menu-icon h3 {
+  margin-left: 10px;
+}
+
+.header .profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-name {
+  margin-left: 10px;
+  line-height: 1.2;
+  font-size: 14px;
+}
+
+.header .profile-picture {
+  cursor: pointer;
+}
+
+.icon-menu-profile {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.modal-overlay > div {
+  min-width: 350px;
+  min-height: 350px;
+}
+.modal-overlay > div .profile-picture {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

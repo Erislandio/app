@@ -1,13 +1,13 @@
 import Loader from "react-loader-spinner";
 import React from "react";
 
-export const Loading = () => {
+export const Loading = ({ height, width }) => {
   return (
     <Loader
       type="TailSpin"
       color="#00BFFF"
-      height={100}
-      width={100}
+      height={height ? height : 50}
+      width={width ? width : 50}
       timeout={3000}
     />
   );

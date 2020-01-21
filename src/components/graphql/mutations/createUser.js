@@ -40,3 +40,11 @@ export const createUser = gql`
     }
   }
 `;
+
+export const updateProfilePicture = gql`
+  mutation updateProfilePicture($id: ID!, $image: String) {
+    updateUser(id: $id, image: $image) {
+      image
+    }
+  }
+`;
