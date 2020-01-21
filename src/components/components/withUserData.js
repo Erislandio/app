@@ -2,7 +2,7 @@ import React from "react";
 import { getUserByEmail } from "../graphql/queries/getUserByEmail";
 import { useQuery } from "@apollo/react-hooks";
 import { Loading } from "./loading";
-import { UserContext } from "../context/userContext";
+import { UserContext, userNotDefined } from "../context/userContext";
 import { Header } from "../header/header";
 
 export const WithUserData = React.memo(
@@ -17,18 +17,14 @@ export const WithUserData = React.memo(
       return <Component {...rest} />;
     }
 
-    if (loading || !data) {
-      return <Loading />;
-    }
-
     if (error) {
       return <div>Tivemos um problema ao carregar os dados...</div>;
     }
 
     return (
-      <UserContext.Provider value={data}>
+      <UserContext.Provider value={data ? data : userNotDefined}>
         <Header />
-        <Component {...rest} user={data} />;
+        {loading || !data ? <Loading /> : <Component {...rest} user={data} />}
       </UserContext.Provider>
     );
   }

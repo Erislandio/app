@@ -44,7 +44,33 @@ export const createUser = gql`
 export const updateProfilePicture = gql`
   mutation updateProfilePicture($id: ID!, $image: String) {
     updateUser(id: $id, image: $image) {
+      createdAt
+      email
+      id
       image
+      lastname
+      name
+      projects {
+        createdAt
+        description
+        id
+        name
+        tasks {
+          completed
+          createdAt
+          description
+          id
+          name
+          works {
+            completed
+            createdAt
+            date
+            description
+            endDate
+            startDate
+          }
+        }
+      }
     }
   }
 `;
