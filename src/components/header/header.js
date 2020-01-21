@@ -5,6 +5,7 @@ import "./header.css";
 import { ProfilePicture } from "./profilePicture";
 import Modal from "react-responsive-modal";
 import MyDropzone from "./dropzone";
+import { Dropwdown } from "./dropdown";
 
 export const Header = () => {
   const {
@@ -12,6 +13,7 @@ export const Header = () => {
   } = useContext(UserContext);
 
   const [openModal, setOpenModal] = useState(false);
+  const [openDrop, setOpenDrop] = useState(false);
 
   return (
     <header id="header" className="header">
@@ -28,9 +30,13 @@ export const Header = () => {
             {name} <br />
             {lastname}
           </span>
-          <span className="icon-menu-profile">
+          <span
+            className="icon-menu-profile"
+            onClick={() => setOpenDrop(!openDrop)}
+          >
             <IoIosArrowDown size="20" />
           </span>
+          <Dropwdown open={openDrop} />
         </div>
         <Modal
           id="profile-picture-modal"
