@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../context/userContext";
+import { UserContext, menuItens } from "../context/userContext";
 import { ProfilePicture } from "../header/profilePicture";
 import Modal from "react-responsive-modal";
 import MyDropzone from "../header/dropzone";
@@ -11,6 +11,7 @@ import {
   MdExitToApp
 } from "react-icons/md";
 import { FaProjectDiagram, FaTasks } from "react-icons/fa";
+import { SubmenuItem } from "../components/subMenuItem";
 
 export const SideBar = ({ open }) => {
   const {
@@ -46,27 +47,11 @@ export const SideBar = ({ open }) => {
       </Modal>
       <div className="sub-menu">
         <ul>
-          <li>
-            Dashboard <MdDashboard />
-          </li>
-          <li>
-            Projetos <FaProjectDiagram />
-          </li>
-          <li>
-            Tarefas <FaTasks />
-          </li>
-          <li>
-            Membros <MdPeople />
-          </li>
-          <li>
-            Conta <MdAccountBox />
-          </li>
-          <li>
-            Settings <MdSettings />
-          </li>
-          <li>
-            Sair <MdExitToApp />
-          </li>
+          {menuItens.map(({ title, link, icon }, index) => {
+            return (
+              <SubmenuItem key={index} title={title} icon={icon} link={link} />
+            );
+          })}
         </ul>
       </div>
     </div>

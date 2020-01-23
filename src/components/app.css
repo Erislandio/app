@@ -22,37 +22,55 @@
 }
 
 #main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-  
+
 .main-component {
-    padding: 20px;
+  padding: 20px;
 }
 
 .sidebar-top-header {
-    min-height: 67px;
-    background: #2c3e50;
+  min-height: 67px;
+  background: #2c3e50;
 }
 
 #sidebar ul li {
-    padding: 10px;
-    cursor: pointer;
-    border-bottom: 1px solid #dedede;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  cursor: pointer;
+  border-bottom: 1px solid #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-#sidebar ul li:hover{
-    background: #2c3e50;
-    color: #fff;
-    transition: all .3s;
+#sidebar ul li a {
+  color: #2c3e50;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  width: 100%;
+  z-index: 100000;
 }
 
+#sidebar ul li svg {
+  position: absolute;
+  right: 10px;
+
+}
+
+#sidebar ul li:hover a {
+  color: #fff;
+}
+
+#sidebar ul li:hover {
+  background: #2c3e50;
+  color: #fff;
+  transition: all 0.3s;
+}
 
 #sidebar .sub-menu {
-    border-right: 1px solid #dedede;
-    height: 100%;
+  border-right: 1px solid #dedede;
+  height: 100%;
 }
