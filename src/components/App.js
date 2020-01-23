@@ -5,6 +5,7 @@ import { PublicRoute, PrivateRoute, LoginRoute } from "./components/routes";
 import { Login } from "./login/login";
 import { Dashboard } from "./dashboard/dashboard";
 import { Signin } from "./signin/signin";
+import './app.css'
 
 export default function App() {
   return (

@@ -75,7 +75,7 @@ function MyDropzone() {
           {isDragActive ? (
             <p>Arraste e solte a imagem aqui </p>
           ) : (
-            <p>Selecionar foto</p>
+            <p className="photo-select">Selecionar foto</p>
           )}
         </div>
       )}

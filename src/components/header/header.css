@@ -17,18 +17,21 @@
   margin-left: 10px;
 }
 
-.header .profile-header {
+.profile-header {
   display: flex;
   align-items: center;
+  padding: 10px;
+  max-height: 60px;
+  border-bottom: 1px solid #dedede;
 }
 
-.header .user-name {
+.user-name {
   margin-left: 10px;
   line-height: 1.2;
   font-size: 14px;
 }
 
-.header .profile-picture {
+.profile-picture {
   cursor: pointer;
 }
 
@@ -91,4 +94,40 @@
   position: absolute;
   top: -22px;
   right: -2px;
+}
+
+.photo-select {
+  width: 100%;
+  max-width: 205px;
+  padding: 10px;
+  border-radius: 23px;
+  background: #2c3e50;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: all .3s;
+}
+
+.photo-select:hover {
+  opacity: 0.9;
+}
+
+.header .search-input {
+  position: relative;
+}
+
+.header .search-input svg{
+  position: absolute;
+  right: 5px;
+  top: 7px;
+}
+
+.header .search-input input{
+  max-width: 200px;
+  width: 100%;
+  border: none;
+  padding: 5px 30px 5px 20px;
+  border-radius: 20px;
+  outline: none;
 }

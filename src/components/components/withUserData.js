@@ -5,10 +5,11 @@ import { Loading } from "./loading";
 import { UserContext, userNotDefined } from "../context/userContext";
 import { Header } from "../header/header";
 import Drawer from "rc-drawer";
+import { SideBar } from "../sidebar/sidebar";
 
 export const WithUserData = React.memo(
   ({ component: Component, email, ...rest }) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const { data, loading, error } = useQuery(getUserByEmail, {
       variables: {
@@ -26,13 +27,19 @@ export const WithUserData = React.memo(
 
     return (
       <UserContext.Provider value={data ? data : userNotDefined}>
-        <div>
-          <Header setOpen={setOpen} open={open} />
-          <Drawer width="300" open={open} onClose={() => setOpen(false)}>
-            teste
-          </Drawer>
+        <div id="main-container" className="main-container">
+          <SideBar open={open} />
+          <div id="main" className="main-content">
+            <Header setOpen={setOpen} open={open} />
+            {loading || !data ? (
+              <Loading />
+            ) : (
+              <div className="main-component">
+                <Component {...rest} user={data} />
+              </div>
+            )}
+          </div>
         </div>
-        {loading || !data ? <Loading /> : <Component {...rest} user={data} />}
       </UserContext.Provider>
     );
   }
