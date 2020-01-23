@@ -7,7 +7,7 @@ import Modal from "react-responsive-modal";
 import MyDropzone from "./dropzone";
 import { Dropwdown } from "./dropdown";
 
-export const Header = () => {
+export const Header = ({ setOpen, open }) => {
   const {
     User: { name, lastname }
   } = useContext(UserContext);
@@ -19,7 +19,7 @@ export const Header = () => {
     <header id="header" className="header">
       <div className="header-container">
         <span className="menu-icon">
-          <IoIosMenu size="40" />
+          <IoIosMenu size="40" onClick={() => setOpen(!open)} />
           <h3>TASKAPP</h3>
         </span>
         <div className="profile-header">
