@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { createProject } from "../../components/graphql/mutations/projects";
+import {
+  createProject,
+  getProjectByUserId
+} from "../../components/graphql/mutations/projects";
 import { DefaultForm } from "../components/defaultForm";
 import { DefaultInput } from "../components/defaultInput";
 import { DefaultButton } from "../components/defaultButton";
 import { Title } from "../components/titlePage";
 import { useToasts } from "react-toast-notifications";
+import { useQuery } from "@apollo/react-hooks";
 
 export const CreateProject = ({ id, setFetch, fetch }) => {
   const INITIAL_STATE_PROJECT = {
@@ -53,9 +57,19 @@ export const CreateProject = ({ id, setFetch, fetch }) => {
         );
       })
       .finally(() => {
-        setFetch(!fetch)
+        setFetch(!fetch);
       });
   };
+
+  const { data, error } = useQuery(getProjectByUserId, {
+    variables: {
+      id,
+      key: Math.random()
+    },
+    ssr: true
+  });
+
+  console.log(data);
 
   return (
     <div className="" id="create-project">
