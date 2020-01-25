@@ -1,0 +1,62 @@
+
+
+.default-form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.container-input {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+    margin-right: 15px;
+}
+
+.container-input .input-default {
+    padding: 10px;
+    border: 1px solid #dedede;
+}
+
+span.container-button {
+    width: 100%;
+    max-width: 200px;
+}
+
+button.btn-default {
+    background: #2c3e50;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.title-page {
+    margin: 15px 0px;
+}
+
+ul.item-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+ul.item-list li {
+    list-style: none;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dedede;
+    border-collapse: collapse;
+}
+
+ul.item-list li:nth-child(even) {
+    background: #dedede;
+}
