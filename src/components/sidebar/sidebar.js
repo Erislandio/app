@@ -3,14 +3,6 @@ import { UserContext, menuItens } from "../context/userContext";
 import { ProfilePicture } from "../header/profilePicture";
 import Modal from "react-responsive-modal";
 import MyDropzone from "../header/dropzone";
-import {
-  MdDashboard,
-  MdPeople,
-  MdAccountBox,
-  MdSettings,
-  MdExitToApp
-} from "react-icons/md";
-import { FaProjectDiagram, FaTasks } from "react-icons/fa";
 import { SubmenuItem } from "../components/subMenuItem";
 
 export const SideBar = ({ open }) => {
@@ -20,6 +12,7 @@ export const SideBar = ({ open }) => {
 
   const [openModal, setOpenModal] = useState(false);
   const [openDrop, setOpenDrop] = useState(false);
+  
   return (
     <div id="sidebar" className={`${open ? " open " : " closed"}`}>
       <div className="profile-header">
